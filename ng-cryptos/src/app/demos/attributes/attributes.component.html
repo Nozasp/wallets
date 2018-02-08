@@ -1,0 +1,26 @@
+<body>
+
+<p>
+  attributes works!
+
+<button [disabled]="isDisabled"> Click ME</button>
+
+  <button (click)="toggle()"> Toggle my button</button>
+
+  <input name ="data" #dataElt (keyup)="nop()"> ::: {{dataElt.value}}
+</p>
+
+<!-- On a du pseudo-html ce qui permet à angular de compilé du javascript additioné avec le controlleur ET du HTML {{}}  -->
+<!-- -->
+
+
+
+
+<div>
+  A burger cost : {{burgerService.getPrice()}}
+  and steak weight is: {{burgerService.steakService.getWeight()}}
+  <!--le poid n est pas une donnée qui change, qu on va chercher ailleur -->
+  the height is : {{height}}
+</div>
+
+</body>

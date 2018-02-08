@@ -1,0 +1,62 @@
+<!-- View -->
+
+===== Depose your Dollars ===
+
+
+  <div>
+    <!-- Name, symbol , price -->
+    <table>
+      <thead>
+      <tr>
+        <th> Symbol  </th>
+        <th>Quantity</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor = "let line of wallet.lines">
+
+        <td  [style.color]=getColor(line.symbol) >{{line.symbol}}</td>
+        <td>{{line.quantity}}</td>
+
+      </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+
+
+  Total en Dollar : {{wallet.totalDollarValue()}} $
+
+
+  <p>
+
+  <input type="number" #amount>
+More money: <button (click) ="deposit(amount.value)"> Deposite !</button>
+</p>
+
+
+<br>
+  ===== BUY Other CRYPTOS ===
+<br>
+  Symbol :<input #devise>
+  Quantity :<input type = "number" #price>
+  <button (click) ="buy(price.value, devise.value)">Buy </button>
+  <span> {{wallet}} </span>
+
+
+<br>
+
+===== SELL CRYPTOS ===
+<br>
+<p>
+
+Symbol :<input #deviseSell>
+Quantity :<input type = "number" #priceSell> <!-- # déborde en dehors du <>, * déborde pas en dehors des <> -->
+<button (click) ="sell(priceSell.value, deviseSell.value)">Sell </button>
+<span> {{wallet}} </span>
+
+</p>
+

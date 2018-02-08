@@ -1,0 +1,63 @@
+
+
+<p [style.color] = "'blue'">
+  template works! Template displays the model
+  {{data}}
+</p>
+
+<p [style.color]= "'grey' ">
+  Concatenate strings ={{data + ' MORE TEXT'}}
+
+</p>
+
+<p>
+Put some text in a paragraph:
+  <p [textContent] = "data">
+</p>
+
+More directory :
+<p>
+  {{data}}
+
+</p>
+
+
+
+===== Make some Cool Loops
+
+<div>
+
+  <ul>
+    <!-- Loop in pseudo-HTML -->
+    <li *ngFor = "let coin of coins">   <!-- crée autant de ligne que de coin de coins -->
+    {{coin.symbol}} => {{coin.price}}  <!-- Pour chaque symbol on affiche le price -->
+    </li>
+  </ul>
+
+</div>
+
+
+
+===== Make Table great again :
+<div>
+  <!-- Name, symbol , price -->
+  <table>
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th> Symbol  </th>
+  <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor = "let coin of coins">
+      <td> {{coin.name}} </td>
+      <td > {{coin.symbol}}</td>
+      <td>{{coin.price}}</td>
+    </tr>
+
+    </tbody>
+
+  </table>
+</div>
