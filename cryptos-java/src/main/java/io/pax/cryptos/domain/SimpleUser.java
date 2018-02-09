@@ -10,6 +10,11 @@ public class SimpleUser implements User {
     int id;
     String name;
 
+    public SimpleUser(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Override
     public int getId() {
         return id;
