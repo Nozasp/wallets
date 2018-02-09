@@ -1,3 +1,29 @@
 <p>
   user-list-view works!
 </p>
+
+<div *ngIf ="!selectedUser">
+  Please select a user
+</div>
+
+
+<div class="btn-group">
+  <ul>
+    <li  *ngFor="let user of users">
+      <a href="#{{user.id}}" (click)="details(user)"> {{user.name}} </a>
+    </li>
+  </ul>
+
+</div>
+
+
+<div *ngIf="selectedUser"> <!--Affiche point que si selected -->
+  <h2> User details: {{selectedUser?.name}}</h2>
+  <ul>
+    <li *ngFor="let wallet of selectedUser?.wallets"> {{wallet.name}}
+
+    </li>
+
+  </ul>
+
+</div>

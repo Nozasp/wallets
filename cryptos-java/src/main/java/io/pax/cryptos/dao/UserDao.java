@@ -1,7 +1,6 @@
 package io.pax.cryptos.dao;
 
-import io.pax.cryptos.domain.SimpleUser;
-import io.pax.cryptos.domain.User;
+import io.pax.cryptos.domain.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -35,6 +34,41 @@ public class UserDao {
         return users;
     }
 
+    public User findUserWithWallets(int userId) throws SQLException {
+        Connection connection = connector.getConnection();
+        String query = "SELECT * FROM wallet w RIGHT JOIN user u ON w.user_id=u.id WHERE u.id =?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1,userId);
+
+        ResultSet rs = statement.executeQuery();
+
+        User user = null;
+        //pro tip : always init lists
+        List<Wallet> wallets = new ArrayList<>();
+
+        while (rs.next()){  //On rempli toute les lignes
+
+            String userName = rs.getString("u.name");
+            System.out.println("userName:" + userName);
+            user = new FullUser(userId, userName, wallets);
+
+            int walletId = rs.getInt("w.id");
+            String walletName = rs.getString("w.name");
+
+            if (walletId > 0) {
+                Wallet wallet = new SimpleWallet(walletId, walletName);
+                wallets.add(wallet);
+            }
+
+        }
+        rs.close();
+        statement.close();
+        connection.close();
+
+        return user;
+    }
+
+
     public int createUser(String name) throws SQLException {
 
         //MOST important stuff of your life: NEVER EVER String concatenation in JDBC
@@ -62,7 +96,7 @@ public class UserDao {
     }
 
 
- /*  public void deleteUser(int userid) throws SQLException {
+ public void deleteUser(int userid) throws SQLException {
         String query = "DELETE FROM user WHERE id = ?";
 
         //query = "INSERT INTO wallet (name, user_id) VALUES ('test', 2)";
@@ -78,17 +112,44 @@ public class UserDao {
 
 
     }
-*/
+
+
+
+    public List<User> findByName(String extract) throws SQLException {
+        List<User> findByName = new ArrayList<>();
+        Connection conn = this.connector.getConnection();
+        String query = "SELECT * FROM user WHERE name LIKE ?";
+        PreparedStatement statement = conn.prepareStatement(query);
+
+        statement.setString(1, extract + "%");
+        ResultSet rs = statement.executeQuery();
+
+
+        //On parcours not re liste de résult et on run
+        while (rs.next()) {
+            String name = rs.getString("name");
+            int id = rs.getInt("id");
+
+            findByName.add(new SimpleUser(id, name));
+        }
+
+        rs.close();
+        statement.close();
+        conn.close();
+        return findByName ;
+    }
+
+
+
 
     public static void main(String[] args) throws SQLException {
         UserDao dao = new UserDao();
-      dao.createUser( "yo");
+     // dao.createUser( "yo");
 
+   //dao.deleteUser( 46);
+//        System.out.println(dao.findByName("Wo"));
+        System.out.println(dao.findUserWithWallets(2));
 
-
-
-
-      // dao.deleteUser( 25);
         //Cree un wallet que si la variable id est utilisé plus tard
 
 
@@ -96,7 +157,7 @@ public class UserDao {
         //dao.updateWallet(2, "serieux");
 
         //dao.deleteAll(6);
-        //  dao.deleteByName("Yellow");
+        // dao.deleteByName("Yellow");
 
 
 

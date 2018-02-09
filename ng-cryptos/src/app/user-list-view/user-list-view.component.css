@@ -3,3 +3,28 @@ p
   background-color: black; /* Le fond de la page sera noir */
   color: white;
 }
+
+
+.btn-group {
+  background-color: #a3c998; /* Green background */
+  border: 1px solid #79a466; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+
+
+div
+{
+
+  background-color: #a3c998;
+}
+
+h2{
+
+  background-color: #748f6c;
+  color: white;
+}

@@ -31,6 +31,7 @@ public class SimpleUser implements User {
 
     @Override
     public List<Wallet> getWallets() {
+
         return null;
     }
 
