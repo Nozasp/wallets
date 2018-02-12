@@ -62,4 +62,15 @@ export class UserListViewComponent implements OnInit {
       .catch (e => alert(e._messages));
   }
 
+
+/*
+  deleteWallet(){
+    this.dataService.createWallet(this.deletedWallet)
+      .then(() => this.deleteddUser.splice(
+        Object.assign({}, this.deletedWallet)
+      ))
+      .catch (e => alert(e));
+  }*/
+
+
 }
