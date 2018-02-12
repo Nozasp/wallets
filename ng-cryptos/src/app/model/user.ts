@@ -1,6 +1,8 @@
 //Into the model
 
 import {Wallet} from "./wallet";
+
+
 export class User{
   name:string;
   id:number;

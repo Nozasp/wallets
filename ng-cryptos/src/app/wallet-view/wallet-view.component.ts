@@ -83,6 +83,13 @@ getColor(symbol){
     return this.pricingService.getColor(symbol);
 }
 
+
+
+
+
+
+
+
 }
 
 

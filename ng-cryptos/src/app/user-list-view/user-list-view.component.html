@@ -2,14 +2,14 @@
   user-list-view works!
 </p>
 
-<div *ngIf ="!selectedUser">
+<div *ngIf="!selectedUser">
   Please select a user
 </div>
 
 
 <div class="btn-group">
   <ul>
-    <li  *ngFor="let user of users">
+    <li *ngFor="let user of users">
       <a href="#{{user.id}}" (click)="details(user)"> {{user.name}} </a>
     </li>
   </ul>
@@ -26,4 +26,22 @@
 
   </ul>
 
+  <h3>Create new wallet</h3>
+  <form>
+    <input type="text" name="walletName"
+           [(ngModel)]="createdWallet.name" (click)="createdWallet.name=''">
+    <button (click)="createWallet()" [disabled]="createdWallet.name.length<2"> Create new Wallet
+    </button>
+  </form>
+
+  <h4>Create new user</h4>
+  <form>
+    <input type="text" name="userName"
+           [(ngModel)]="createdUser.name" (click)="createdUser.name=''">
+    <button (click)="createUser()" [disabled]="createdUser.name?.length<2"> Create new User
+    </button>
+  </form>
+
 </div>
+
+

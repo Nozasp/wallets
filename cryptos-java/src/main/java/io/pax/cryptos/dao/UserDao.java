@@ -96,6 +96,9 @@ public class UserDao {
     }
 
 
+
+
+
  public void deleteUser(int userid) throws SQLException {
         String query = "DELETE FROM user WHERE id = ?";
 
@@ -142,9 +145,37 @@ public class UserDao {
 
 
 
+
+    //On rajoute ici une list de user ?
+   /* public List<Wallet> findByName(String extract) throws SQLException {
+        List<Wallet> findByName = new ArrayList<>();
+        Connection conn = this.connector.getConnection();
+        String query = "SELECT * FROM wallet WHERE name LIKE ?";
+        PreparedStatement statement = conn.prepareStatement(query);
+
+        statement.setString(1, extract + "%");
+        ResultSet rs = statement.executeQuery();
+
+
+        //On parcours not re liste de résult et on run
+        while (rs.next()) {
+            String name = rs.getString("name");
+            int id = rs.getInt("id");
+
+            findByName.add(new SimpleWallet(id, name));
+
+        }}*/
+
+
+
+
+
+
+
+
     public static void main(String[] args) throws SQLException {
         UserDao dao = new UserDao();
-     // dao.createUser( "yo");
+         dao.createUser( "yo");
 
    //dao.deleteUser( 46);
 //        System.out.println(dao.findByName("Wo"));

@@ -8,6 +8,9 @@ public class SimpleWallet implements Wallet{
     String name;
 
 
+    public SimpleWallet() {
+    }
+
     public SimpleWallet(int id, String name) {
         this.id = id;
         this.name = name;
@@ -23,6 +26,10 @@ public class SimpleWallet implements Wallet{
         return null;
     }
 
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public String getName() {

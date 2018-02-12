@@ -190,7 +190,7 @@ JdbcConnector connector = new JdbcConnector();
         //System.out.println(dao.findByName("Yo"));
         //dao.updateWallet(2, "serieux");
 
-         dao.deleteAll(6);
+     //    dao.deleteAll(6);
       //  dao.deleteByName("Yellow");
 
 

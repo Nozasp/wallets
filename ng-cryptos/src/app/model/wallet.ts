@@ -1,4 +1,5 @@
 import {PricingService} from "../pricing.service";
+import {User} from "./user";
 export class Line {
   constructor(public quantity: number, public symbol: string) {
 
@@ -6,7 +7,8 @@ export class Line {
 }
 
 export class Wallet {
-
+  user?: User;
+  name:String;
   lines: Line[] = [];
   pricingService: PricingService;
   //  private coins_1: any;
