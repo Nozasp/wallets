@@ -1,9 +1,13 @@
-package io.pax.cryptos.domain;
+package io.pax.cryptos.domain.jdbc;
+
+import io.pax.cryptos.domain.User;
+import io.pax.cryptos.domain.Wallet;
+
 
 /**
  * Created by AELION on 06/02/2018.
  */
-public class SimpleWallet implements Wallet{
+public class SimpleWallet implements Wallet {
     int id;
     String name;
 
@@ -24,7 +28,7 @@ public class SimpleWallet implements Wallet{
     @Override
     public User getUser() {
         return null;
-    }
+         }
 
 
     public void setName(String name) {

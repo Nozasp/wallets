@@ -5,6 +5,11 @@ package io.pax.cryptos.domain;
  */
 public interface Wallet {
     int getId();
-    User getUser();
+
+    default User getUser(){
+        return null;
+    }
     String getName();
+
+
 }

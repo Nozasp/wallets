@@ -1,7 +1,7 @@
 package io.pax.cryptos.dao;
 
 
-import io.pax.cryptos.domain.SimpleWallet;
+import io.pax.cryptos.domain.jdbc.SimpleWallet;
 import io.pax.cryptos.domain.Wallet;
 
 import java.sql.*;
@@ -158,7 +158,6 @@ JdbcConnector connector = new JdbcConnector();
         statement.close();
         conn.close();
 
-
     }
 
 
@@ -182,12 +181,13 @@ JdbcConnector connector = new JdbcConnector();
 
     public static void main(String[] args) throws SQLException {
        WalletDao dao = new WalletDao();
-       int id = dao.createWallet(2, "NewWallet");
-       //dao.deleteWallet(id);
+
+      // int id = dao.createWallet(2, "NewWallet");
+      //dao.deleteWallet(id);
       //Cree un wallet que si la variable id est utilisé plus tard
 
 
-        //System.out.println(dao.findByName("Yo"));
+      //System.out.println(dao.findByName("Yo"));
         //dao.updateWallet(2, "serieux");
 
      //    dao.deleteAll(6);
