@@ -85,14 +85,15 @@ em.getTransaction().begin();
 
     public static void main(String[] args) {
         JpaUserDao dao = new JpaUserDao();
-        dao.createUser("Arthur");
-        User u = dao.findByName("Arthur");
+        dao.createUser("Kenny");
+        User u = dao.findByName("Kenny");
+
         System.out.println(u.getName());
 
         dao.deleteByName("Arthur");
 
         System.out.println("After deleting: ");
-
+        System.out.println(u.getWallets());
 
         //End of a very long program
         dao.connector.close();
