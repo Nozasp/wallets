@@ -9,6 +9,4 @@ public interface User {
     int getId();
     String getName();
     List<? extends Wallet> getWallets();
-
-
 }
