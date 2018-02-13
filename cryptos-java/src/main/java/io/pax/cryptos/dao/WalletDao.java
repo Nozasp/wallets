@@ -182,7 +182,7 @@ JdbcConnector connector = new JdbcConnector();
 
     public static void main(String[] args) throws SQLException {
        WalletDao dao = new WalletDao();
-       //int id = dao.createWallet(2, "NewWallet");
+       int id = dao.createWallet(2, "NewWallet");
        //dao.deleteWallet(id);
       //Cree un wallet que si la variable id est utilisé plus tard
 
